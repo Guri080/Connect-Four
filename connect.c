@@ -13,114 +13,66 @@ char bar = '|';
 //    4 {(4,1),(4,3),(4,5),(4,7),(4,9),(4,11),(4,14)},
 //    5 {(5,1),(5,3),(5,5),(5,7),(5,9),(5,11),(5,14)}
 
-// Function to check for a horizontal win
-int checkHorizontalWin(int numTokens, char player)
-{
-    for (int i = 0; i < ROWS; i++)
-    {
-        for (int j = 0; j < COLUMN - numTokens + 1; j++)
-        {
-            int won = 1;
-            for (int i = 0; i < numTokens; i++)
-            {
-                if (arr[i][j + i] != player)
-                {
-                    won = 0;
-                    break;
-                }
-            }
-            if (won)
-            {
-                return 1;
-            }
-        }
-    }
-    return 0;
-}
-
-// Function to check for a vertical win
-int checkVerticalWin(int numTokens, char player)
-{
-    for (int i = 0; i < ROWS - numTokens + 1; i++)
-    {
-        for (int j = 0; j < COLUMN; j++)
-        {
-            int won = 1;
-            for (int i = 0; i < numTokens; i++)
-            {
-                if (arr[i + i][j] != player)
-                {
-                    won = 0;
-                    break;
-                }
-            }
-            if (won)
-            {
-                return 1;
-            }
-        }
-    }
-    return 0;
-}
-
-// Function to check for a diagonal win (both diagonals)
-int checkDiagonalWin(int numTokens, char player)
-{
-    // Check diagonals from top-left to bottom-right
-    for (int i = 0; i < ROWS - numTokens + 1; i++)
-    {
-        for (int j = 0; j < COLUMN - numTokens + 1; j++)
-        {
-            int won = 1;
-            for (int i = 0; i < numTokens; i++)
-            {
-                if (arr[i + i][j + i] != player)
-                {
-                    won = 0;
-                    break;
-                }
-            }
-            if (won)
-            {
-                return 1;
-            }
-        }
-    }
-
-    for (int i = 0; i < ROWS - numTokens + 1; i++)// Check diagonals from top right to bottom left
-    {
-        for (int j = numTokens - 1; j < COLUMN; j++)
-        {
-            int won = 1;
-            for (int i = 0; i < numTokens; i++)
-            {
-                if (arr[i + i][j - i] != player)
-                {
-                    won = 0;
-                    break;
-                }
-            }
-            if (won)
-            {
-                return 1;
-            }
-        }
-    }
-    return 0;
-}
-
-char checkWinner(int numTokens) //checks winner
-{
+char checkWinner(int numTokens) {
     char players[] = {'R', 'Y'};
 
-    for (int i = 0; i < 2; i++)
-    {
+    for (int i = 0; i < 2; i++) {
         char player = players[i];
-        if (checkHorizontalWin(numTokens, player) ||
-            checkVerticalWin(numTokens, player) ||
-            checkDiagonalWin(numTokens, player))
-        {
-            return player; // return the winner
+        
+        // Horizontal Win
+        for (int row = 0; row < ROWS; row++) {
+            for (int col = 0; col < COLUMN - numTokens + 1; col++) {
+                int won = 1;
+                for (int k = 0; k < numTokens; k++) {
+                    if (arr[row][col + k] != player) {
+                        won = 0;
+                        break;
+                    }
+                }
+                if (won) return player;
+            }
+        }
+
+        // Vertical Win
+        for (int col = 0; col < COLUMN; col++) {
+            for (int row = 0; row < ROWS - numTokens + 1; row++) {
+                int won = 1;
+                for (int k = 0; k < numTokens; k++) {
+                    if (arr[row + k][col] != player) {
+                        won = 0;
+                        break;
+                    }
+                }
+                if (won) return player;
+            }
+        }
+
+        // Diagonal Win (down-right)
+        for (int row = 0; row < ROWS - numTokens + 1; row++) {
+            for (int col = 0; col < COLUMN - numTokens + 1; col++) {
+                int won = 1;
+                for (int k = 0; k < numTokens; k++) {
+                    if (arr[row + k][col + k] != player) {
+                        won = 0;
+                        break;
+                    }
+                }
+                if (won) return player;
+            }
+        }
+
+        // Diagonal Win (down-left)
+        for (int row = 0; row < ROWS - numTokens + 1; row++) {
+            for (int col = numTokens - 1; col < COLUMN; col++) {
+                int won = 1;
+                for (int k = 0; k < numTokens; k++) {
+                    if (arr[row + k][col - k] != player) {
+                        won = 0;
+                        break;
+                    }
+                }
+                if (won) return player;
+            }
         }
     }
 
