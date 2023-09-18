@@ -18,7 +18,7 @@ This repository contains the source code for a simple Connect Four game implemen
 ## How to Play
 
 1. Clone this repository to your local machine.
-2. Compile the game using a C compiler (e.g., GCC
+2. Compile the game using a C compiler (e.g., GCC)
 3. Follow the on-screen instructions to play the game.
 
 Enjoy a classic game of Connect Four with a friend or challenge yourself against the computer!
