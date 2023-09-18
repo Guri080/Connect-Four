@@ -1,21 +1,24 @@
-# Rock, Paper, Scissors Game
+# Connect Four Game in C
+
 
 ## Overview
 
-This repository contains a Python-based Rock, Paper, Scissors game with a graphical user interface developed using the Tkinter library. The game aims to provide an engaging and visually appealing user experience by incorporating images for 'rock,' 'paper,' and 'scissors.' Players can make their choices and compete against a computer opponent whose selections are generated randomly, introducing an element of unpredictability to the gameplay.
+Connect Four is a classic two-player connection board game. The objective is to be the first to form a horizontal, vertical, or diagonal line of four discs of your color.
+
+This repository contains the source code for a simple Connect Four game implemented in C, making it playable in the command line.
 
 ## Features
 
-- User-friendly graphical interface.
-- Visual representation of 'rock,' 'paper,' and 'scissors' using images.
-- Play individual matches or multiple rounds.
-- Randomly generated computer opponent choices for added excitement.
+- **Two-Player Gameplay**: Play against a friend on the same computer.
+- **Command Line Interface**: Enjoy the game in a text-based environment.
+- **Interactive Gameplay**: Alternate turns, drop tokens into columns, and strategize to win.
+- **Win Detection**: The game automatically detects when a player wins and announces the winner.
+- **Customizable Rules**: Select the number of tokens needed to win (3, 4, or 5).
 
 ## How to Play
 
-1. Clone or download this repository to your local machine.
-2. Ensure you have Python installed.
-3. Select your choice (rock, paper, or scissors) by clicking the respective image.
-4. See if you can outsmart the computer opponent!
+1. Clone this repository to your local machine.
+2. Compile the game using a C compiler (e.g., GCC
+3. Follow the on-screen instructions to play the game.
 
-Enjoy the game and have fun testing your Rock, Paper, and Scissors skills!
+Enjoy a classic game of Connect Four with a friend or challenge yourself against the computer!
